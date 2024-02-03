@@ -2,33 +2,33 @@
 
 const quizData = [
     {
-        question: "What is the capitol of Japan?",
-        answers: ["Osaka", "Kyoto", "Tokyo", "Fuji"],
-        correctAnswer: "Tokyo",
+        question: "In Spirited Away, what animal did Chihiro's parents turn into?",
+        answers: ["Raccoon", "Crow", "Mouse", "Pig"],
+        correctAnswer: "Pig",
         progress: "Q: 1 out of 5"
     },
     {
-        question: "What animal has eight legs?",
-        answers: ["Cat", "Swan", "Snake", "Octopus"],
-        correctAnswer: "Octopus",
+        question: "In Howl's Moving Castle, what color did Howl's hair turn into after Sophie cleaned his bathroom?",
+        answers: ["Blonde", "Black", "Orange", "Red"],
+        correctAnswer: "Orange",
         progress: "Q: 2 out of 5"
     },
     {
-        question: "What book did Tomihiko Morimi not write?",
-        answers: ["Tatami Galaxy", "Suzume", "Penguin Highway", "The Night is Short"],
-        correctAnswer: "Suzume",
+        question: "In Kiki's Delivery Service, what kind of animal is Kiki's familiar, Jiji?",
+        answers: ["Cat", "Rabbit", "Octopus", "Swan"],
+        correctAnswer: "Cat",
         progress: "Q: 3 out of 5"
     },
     {
-        question: "What is not a Ghibli movie?",
-        answers: ["Spirited Away", "Nana", "Howl's Moving Castle", "Totoro"],
-        correctAnswer: "Nana",
+        question: "In Totoro, Satsuki gives Totoro an umbrella, how did Totoro thank her?",
+        answers: ["He gives cat bus boarding priveleges", "He gives treats", "He gives a ride in the wind", "He gives a packet of magical seeds"],
+        correctAnswer: "He gives a packet of magical seeds",
         progress: "Q: 4 out of 5"
     },
     {
-        question: "What fruit does Hachi like?",
-        answers: ["Strawberry", "Peach", "Lychee", "Watermelon"],
-        correctAnswer: "Strawberry",
+        question: "What children's book was The Secret World of Arriety inspired by?",
+        answers: ["The Secret Garden", "The Borrowers", "Gulliver's Travels", "Little House in the Big Woods"],
+        correctAnswer: "The Borrowers",
         progress: "Q: 5 out of 5"
     }
 ]
