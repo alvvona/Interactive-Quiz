@@ -114,10 +114,11 @@ function displayQ(){
             nextButton.innerHTML = "Submit";
         }
 
+
         // display questions and available answers
         const questionHTML = `
             <br>
-            <h2>${questionData.question}</h2>
+            <h2> <strong> Q${currentQ+1}: </strong> &nbsp ${questionData.question}</h2>
             <ul class="answers">
                 ${questionData.answers.map((answer, index) => `
                     <li>
@@ -129,6 +130,8 @@ function displayQ(){
             <p>${questionData.progress}</p>
         `;
         questionContainer.innerHTML = questionHTML; // place questionHTML code into HTML document in questionContainer
+
+
 
         // if question already answered before, cannot answer again
         const answerBtns = document.querySelectorAll(`input[name="q${currentQ}"]`);
@@ -221,7 +224,7 @@ function displayResults() {
     resultsContainer.style.display = "block";
 
     if (score === quizData.length) {
-        resultsContainer.innerHTML += "<p>Congratulations! You got all the questions right!</p>";
+        resultsContainer.innerHTML += "<p><strong>Congratulations! You got all the questions right!</strong></p>";
     }
 
     const resultsHTML = `

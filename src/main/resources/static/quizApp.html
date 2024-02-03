@@ -28,9 +28,7 @@
             <p>You must answer all questions to view your results</p>
             <p>In order to redo the quiz, you must refresh the page.</p>
         <br>
-        <p>Have fun!</p>
-        <br>
-        <button id="startButton"> Start Quiz </button>
+        <button class="nav-btn" id="startButton"> Start Quiz </button>
         <br><br>
     </div>
 
@@ -40,16 +38,15 @@
             <!-- dynamic quiz questions -->
         </div>
         <div class="Navigation">
-            <button id="prevButton"> Previous </button>
-            <button id="nextButton"> Next </button>
+            <button class="nav-btn" id="prevButton"> Previous </button>
+            <button class="nav-btn" id="nextButton"> Next </button>
             <br><br>
         </div>
     </div>
 
 
     <div class="Results" id="results-container">
-        <br>
-        <p> You finished this quiz! You may retake the quiz by refreshing the page. </p>
+        <p> <strong> You finished this quiz! &nbsp You may retake the quiz by refreshing the page. </strong> </p>
         <ul class="correct-answers" id="correct-answers">
             <!-- Correct answers will be dynamically inserted here using JavaScript -->
         </ul>
