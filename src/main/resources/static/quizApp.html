@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <script src="/js/quizLogic.js" defer></script>
+    <link rel="stylesheet" href="/css/quizApp.css">
+</head>
+<body>
+
+    <div id="background-container">
+
+    </div>
+
+    <div class="Title" id="title-container">
+        <h1> ⋆｡˚୨୧˚｡⋆ <br> - Interactive Quiz - <br> °❀⋆.ೃ࿔*:･ </h1>
+        <div class="Theme">
+            <p> - Theme: Ghibli - </p>
+        </div>
+        <br>
+    </div>
+
+
+    <div class="Welcome Page" id="welcome-container">
+        <br>
+        <p>Welcome to the interactive quiz!</p>
+        <br>
+        <p>Rules:</p>
+            <p>You may navigate to previous questions but you cannot change your answers.</p>
+            <p>You must answer each question before moving onto the next question.</p>
+            <p>You must answer all questions to view your results</p>
+            <p>In order to redo the quiz, you must refresh the page.</p>
+        <br>
+        <p>Have fun!</p>
+        <br>
+        <button id="startButton"> Start Quiz </button>
+        <br><br>
+    </div>
+
+
+    <div class="Quiz Content" id="quiz-container">
+        <div class="Question" id="question-container">
+            <!-- dynamic quiz questions -->
+        </div>
+        <div class="Navigation">
+            <button id="prevButton"> Previous </button>
+            <button id="nextButton"> Next </button>
+            <br><br>
+        </div>
+    </div>
+
+
+    <div class="Results" id="results-container">
+        <br>
+        <p> You finished this quiz! You may retake the quiz by refreshing the page. </p>
+        <ul class="correct-answers" id="correct-answers">
+            <!-- Correct answers will be dynamically inserted here using JavaScript -->
+        </ul>
+    </div>
+
+</body>
+</html>
