@@ -1,9 +1,4 @@
 
-// testing remote connection to new account
-// again
-// pls work
-// this time i reconfigured the git user email and name
-
 const quizData = [
     {
         question: "In Spirited Away, what animal did Chihiro's parents turn into?",
@@ -52,10 +47,6 @@ let score = 0;
 
 window.addEventListener("load", function () {
     // initial start page
-    const quizContainer = document.getElementById("quiz-container");
-    quizContainer.style.display = "none";
-    const resultsContainer = this.document.getElementById("results-container");
-    resultsContainer.style.display = "none";
 
     // user click 'start' button 
     startButton.addEventListener("click", function() {
@@ -68,6 +59,7 @@ window.addEventListener("load", function () {
         const prevButton = document.getElementById("prevButton");
         prevButton.style.display = "none";
 
+        const quizContainer = document.getElementById("quiz-container");
         quizContainer.style.display = "block";
         displayQ();
     })
@@ -123,32 +115,35 @@ function displayQ(){
         const questionHTML = `
             <br>
             <h2> <strong> Q${currentQ+1}: </strong> &nbsp ${questionData.question}</h2>
-            <ul class="answers">
-                ${questionData.answers.map((answer, index) => `
+            <ul class="answers" id="answers-container">
+                ${questionData.answers.map((answer) => `
                     <li>
-                        <input type="radio" name="q${currentQ}" value="${answer}"> ${answer}
+                        <button class="btn" onclick="selectAnswer(this, '${answer}')">${answer}</button>
                     </li>`).join('')
                 }
             </ul>
             <br>
-            <p>${questionData.progress}</p>
+            <div class="progress"> <p>${questionData.progress}</p> </div>
         `;
         questionContainer.innerHTML = questionHTML; // place questionHTML code into HTML document in questionContainer
 
 
 
         // if question already answered before, cannot answer again
-        const answerBtns = document.querySelectorAll(`input[name="q${currentQ}"]`);
+        const answerBtns = document.querySelectorAll(`.btn`);
         if (answeredQsList.has(currentQ)) {
             answerBtns.forEach((answerBtn) => {
-                if (answerBtn.value == userAnswersList[currentQ]) {
-                    answerBtn.checked = true; // automatically check previous answer
+                if (answerBtn.textContent == userAnswersList[currentQ]) {
+                    answerBtn.classList.add('selected'); // automatically check previous answer
+                    answerBtn.style.backgroundColor = 'grey';
                 }
                 answerBtn.disabled = true; // user cannot access buttons
             });
         }
+
     }
 
+    // hide 'previous' button if at Q1
     if (currentQ == 0) {
         const prevButton = document.getElementById("prevButton");
         prevButton.style.display = "none";
@@ -156,28 +151,42 @@ function displayQ(){
 }
 
 
-
+function selectAnswer(button, selectedAnswer) {
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.classList.remove('selected');
+        btn.style.backgroundColor = ''; // Reset background color for all buttons
+    });
+    button.classList.add('selected');
+    //button.style.backgroundColor = 'purple';
+}
 
 
 function checkAns(){
-    const userAns = document.querySelector(`input[name="q${currentQ}"]:checked`);
+    const userAns = document.querySelector('.btn.selected');
+    console.log("CHECKANS")
     
     if (userAns) {
         const correctAnsValue = quizData[currentQ].correctAnswer;
         //console.log('correctAnsValue:', correctAnsValue);
 
-        if (userAns.value === correctAnsValue) {
-            userAns.parentElement.style.backgroundColor = 'green';
-            if (answeredQsList.has(currentQ) == false) {
+        if (userAns.textContent === correctAnsValue) {
+            userAns.classList.add('correct');
+            if (!answeredQsList.has(currentQ)) {
                 score++;
+                console.log("SCORE++") // CONSOLE LOGS ARE VERY HELPFUL
             }
         }
         else {
-            userAns.parentElement.style.backgroundColor = 'red';
-            const correctAnsElement = document.querySelector(`input[name="q${currentQ}"][value="${correctAnsValue}"]`);
-            correctAnsElement.parentElement.style.backgroundColor = 'green';
+            userAns.classList.add('incorrect');
+            const buttons = document.querySelectorAll('.btn');
+            // correctButton.classList.add('correct');
+            buttons.forEach(button => {
+                if (button.textContent === correctAnsValue) {
+                    button.classList.add('correct');
+                }
+            });
         }
-        userAnswersList[currentQ] = userAns.value; // store answer to this question
+        userAnswersList[currentQ] = userAns.textContent; // store answer to this question
         answeredQsList.add(currentQ); // store that this question is answered
     }
 }
@@ -201,15 +210,6 @@ function nextQ(){
 function prevQ() {
     currentQ--;
     displayQ();
-}
-
-
-
-
-
-function hideFeedback() {
-    const correctAnswersContainer = document.getElementById("correct-answers");
-    correctAnswersContainer.innerHTML = "";
 }
 
 
@@ -263,6 +263,6 @@ function displayResults() {
 
 
 function answerSelected() {
-    const userAns = document.querySelector(`input[name="q${currentQ}"]:checked`);
+    const userAns = document.querySelector('.btn.selected');
     return userAns !== null; // true if ans exists, false if no ans
 }
