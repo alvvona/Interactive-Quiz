@@ -146,6 +146,11 @@ function displayQ(){
             });
         }
     }
+
+    if (currentQ == 0) {
+        const prevButton = document.getElementById("prevButton");
+        prevButton.style.display = "none";
+    }
 }
 
 
