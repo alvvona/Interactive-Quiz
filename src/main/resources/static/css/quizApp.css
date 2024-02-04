@@ -83,6 +83,7 @@ h1 {
 }
 .correct {
     background-color: rgb(115, 148, 115);
+    color: rgb(57, 54, 77);
 }
   
 .incorrect {
@@ -119,7 +120,7 @@ h1 {
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .nav-btn:hover {
     background: #664b79;
