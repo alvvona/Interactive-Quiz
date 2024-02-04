@@ -190,7 +190,6 @@ function nextQ(){
 }
 
 function prevQ() {
-    //hideFeedback();
     currentQ--;
     displayQ();
 }
